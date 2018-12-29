@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- <title></title> -->
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+       <p>{{message}}</p> 
+       <input v-model = "message">
+    </div>
+
+    <div id="root">
+        姓:<input v-model="fristName" />
+        名:<input v-model="lastName" />
+        <div>{{fullName}}</div>
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el:"#root",
+            data:{
+                fristName:'',
+                lastName:''
+            },
+            computed:{
+                fullName:function(){
+                    return this.fristName + this.lastName
+                }
+            }
+        })
+    </script>
+    
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
+

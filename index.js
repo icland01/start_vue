@@ -6,4 +6,4 @@ var app = new Vue({
     }
 });
 
-// app.message = '我是中国人我爱我的祖国'
+app.message = '我是中国人我爱我的祖国'

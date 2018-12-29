@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- 样式的引入 -->
     <link rel="stylesheet" type="text/css" href="index.css">
     <!-- <title></title> -->
+    <!-- 设置字符集 -->
     <meta charset="utf-8">
+    <!-- 引入vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 
     <div id="app">
-       <p>{{message}}</p> 
-       <input v-model = "message">
+        <!-- 插值表达式 -->
+       <p>{{message}}</p>   
     </div>
 
     <div id="root">
+        <!-- 双向绑定 -->
         姓:<input v-model="fristName" />
         名:<input v-model="lastName" />
         <div>{{fullName}}</div>
+
+        <!-- 模板指令,绑定事件v-on:click 可以简写为@click -->
+        <p title="对比看看" v-on:click=handClick>鼠标悬停于此1</p>
+       <!-- 属性绑定 -->
+        <p v-bind:title=title>鼠标悬停于此2</p>
+       <!-- 可以简写 -->
+        <p :title="title">鼠标悬停于此3</p>
     </div>
 
     <script type="text/javascript">
+        // 一个实例
         new Vue({
+            // 挂在点,
             el:"#root",
+            // 数据,注意逗号容易出错
             data:{
+                title:"这是一个悬浮提示",
                 fristName:'',
                 lastName:''
             },
+            // 计算属性
             computed:{
                 fullName:function(){
                     return this.fristName + this.lastName
                 }
+            },
+            methods:{
+                handClick:function(){
+                    alert("成功了")
+                }
             }
         })
     </script>
-    
+    <!-- 引入 自己写的js -->
     <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
